@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
+import CopyButton from '../../CopyButton';
 import SubjectsForm from '../common/Form';
 import SubjectsCTable from './Table';
 import { getAvailableSubcategories, subjects, years } from './stats';
@@ -50,12 +51,32 @@ function SubjectsCView(props) {
 
     return (
         <>
-            <Row className="mb-3">
+            <Row>
                 <h3>{t("menu.subjectsC")}</h3>
                 <SubjectsForm handleChange={handleChange}
                     params={state} subjects={subjects} years={years}
                     availableSubcategories={getAvailableSubcategories(state.subject)} />
-                <SubjectsCTable params={state} />
+
+                {
+                    (state.subject === "null" && state.year === "null")
+                        ? (
+                            <>
+                                <h5 className="mb-3">{t("table.specify")}</h5>
+                                <p>
+                                    <Link to="?subject=Japanese+Language&gender=total">
+                                        {t("table.showExample")}
+                                    </Link>
+                                </p>
+                            </>
+                        )
+                        : (
+                            <>
+                                <CopyButton />
+                                <SubjectsCTable params={state} />
+                            </>
+                        )
+                }
+
             </Row>
         </>
     );

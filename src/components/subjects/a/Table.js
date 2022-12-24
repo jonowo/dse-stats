@@ -1,26 +1,11 @@
 import Table from 'react-bootstrap/table';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import CopyButton from '../../CopyButton';
 import { genders } from '../common/utils';
 import { grades, stats, years } from './stats';
 
 function SubjectsATable(props) {
     const { t, i18n } = useTranslation();
     const { params } = props;
-
-    if (params.subject === "null" && params.year === "null") {
-        return (
-            <>
-                <h5 className="mb-3">{t("table.specify")}</h5>
-                <p>
-                    <Link to="?subject=Mathematics&subcategory=Compulsory+Part&gender=total">
-                        {t("table.showExample")}
-                    </Link>
-                </p>
-            </>
-        );
-    }
 
     // Horrible code
     let showMathPS = false;
@@ -133,9 +118,8 @@ function SubjectsATable(props) {
 
     return (
         <>
-            <CopyButton />
-            <Table responsive bordered size="sm" id="stats-table"
-                className={i18n.languages[0].startsWith("en") ? "" : "zh"}>
+            <Table responsive bordered size="sm"
+                className={"stats-table " + (i18n.languages[0].startsWith("en") ? "" : "zh")}>
                 <thead>
                     <tr>
                         <th rowSpan="2" width="4%">{t("heading.year")}</th>

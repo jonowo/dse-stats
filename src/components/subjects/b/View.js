@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from 'react-router-dom';
+import CopyButton from '../../CopyButton';
 import SubjectsForm from '../common/Form';
 import SubjectsBTable from './Table';
 import SubjectsBChineseTable from './chineseTable';
@@ -58,7 +59,7 @@ function SubjectsBView(props) {
 
     return (
         <>
-            <Row className="mb-3">
+            <Row>
                 <h3>{t("menu.subjectsB")}</h3>
                 <SubjectsForm handleChange={handleChange}
                     params={state} subjects={subjects.concat(chineseSubjects)} years={years}
@@ -66,9 +67,30 @@ function SubjectsBView(props) {
                         ? getAvailableChineseSubcategories(state.subject)
                         : getAvailableSubcategories(state.subject)} />
 
-                {chineseSubjects.includes(state.subject)
-                    ? <SubjectsBChineseTable params={state} />
-                    : <SubjectsBTable params={state} />}
+                {
+                    (state.subject === "null" && state.year === "null")
+                        ? (
+                            <>
+                                <h5 className="mb-3">{t("table.specify")}</h5>
+                                <p>
+                                    <Link to="?subject=Services&subcategory=Pâtisserie+and+Café+Operations&gender=total">
+                                        {t("table.showExample")}
+                                    </Link>
+                                </p>
+                            </>
+                        )
+                        : (
+                            <>
+                                <CopyButton />
+                                {(subjects.includes(state.subject) || state.subject === "null")
+                                    ? <SubjectsBTable params={state} />
+                                    : ""}
+                                {(chineseSubjects.includes(state.subject) || state.subject === "null")
+                                    ? <SubjectsBChineseTable params={state} />
+                                    : ""}
+                            </>
+                        )
+                }
             </Row>
         </>
     );

@@ -1,26 +1,11 @@
 import Table from 'react-bootstrap/table';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import CopyButton from '../../CopyButton';
 import { genders } from '../common/utils';
 import { grades, stats, years } from './stats';
 
 function SubjectsBTable(props) {
     const { t, i18n } = useTranslation();
     const { params } = props;
-
-    if (params.subject === "null" && params.year === "null") {
-        return (
-            <>
-                <h5 className="mb-3">{t("table.specify")}</h5>
-                <p>
-                    <Link to="?subject=Services&subcategory=Pâtisserie+and+Café+Operations&gender=total">
-                        {t("table.showExample")}
-                    </Link>
-                </p>
-            </>
-        );
-    }
 
     let rows = [];
     for (let year of years) {
@@ -118,32 +103,29 @@ function SubjectsBTable(props) {
     }
 
     return (
-        <>
-            <CopyButton />
-            <Table responsive bordered size="sm" id="stats-table"
-                className={i18n.languages[0].startsWith("en") ? "" : "zh"}>
-                <thead>
-                    <tr>
-                        <th rowSpan="2" width="4%">{t("heading.year")}</th>
-                        <th rowSpan="2" colSpan="2">{t("heading.subject")}</th>
-                        <th rowSpan="2" width="6%">{t("heading.gender")}</th>
-                        <th rowSpan="2" width="6%">{t("heading.noEntered")}</th>
-                        <th rowSpan="2" width="6%">{t("heading.noFulfillingAttendanceRequirement")}</th>
-                        <th colSpan="8">{t("heading.gradesAttained")}</th>
-                    </tr>
-                    <tr>
-                        {
-                            grades.map(g =>
-                                <th key={g} width="12%">{t(g)}</th>
-                            )
-                        }
-                    </tr>
-                </thead>
-                <tbody>
-                    {rows}
-                </tbody>
-            </Table>
-        </>
+        <Table responsive bordered size="sm"
+            className={"stats-table " + (i18n.languages[0].startsWith("en") ? "" : "zh")}>
+            <thead>
+                <tr>
+                    <th rowSpan="2" width="4%">{t("heading.year")}</th>
+                    <th rowSpan="2" colSpan="2">{t("heading.subject")}</th>
+                    <th rowSpan="2" width="6%">{t("heading.gender")}</th>
+                    <th rowSpan="2" width="6%">{t("heading.noEntered")}</th>
+                    <th rowSpan="2" width="6%">{t("heading.noFulfillingAttendanceRequirement")}</th>
+                    <th colSpan="8">{t("heading.gradesAttained")}</th>
+                </tr>
+                <tr>
+                    {
+                        grades.map(g =>
+                            <th key={g} width="12%">{t(g)}</th>
+                        )
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                {rows}
+            </tbody>
+        </Table>
     );
 }
 
