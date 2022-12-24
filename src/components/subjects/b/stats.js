@@ -1,4 +1,4 @@
-import { getStats, getSubjectsAndSubcategories, getYearsFrom } from "../utils";
+import { getStats, getSubjectsAndSubcategories, getYearsFrom } from '../common/utils';
 
 const grades = [
     "Attained with Distinction (II)",

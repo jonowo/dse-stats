@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from "react-router-dom";
-import SubjectsAForm from './Form';
+import SubjectsForm from '../common/Form';
 import SubjectsATable from './Table';
 import { getAvailableSubcategories, subjects, years } from './stats';
-import { candidateTypes, genders, initState, stateToSearchParams } from '../utils';
+import { candidateTypes, genders, initState, stateToSearchParams } from '../common/utils';
 
 function searchParamsToState(params) {
     const state = Object.assign({}, initState);
@@ -54,7 +54,8 @@ function SubjectsAView(props) {
         <>
             <Row className="mb-3">
                 <h3>{t("menu.subjectsA")}</h3>
-                <SubjectsAForm handleChange={handleChange} params={state}
+                <SubjectsForm handleChange={handleChange}
+                    params={state} subjects={subjects} years={years}
                     availableSubcategories={getAvailableSubcategories(state.subject)} />
                 <SubjectsATable params={state} />
             </Row>

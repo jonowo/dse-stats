@@ -3,16 +3,15 @@ import Col from 'react-bootstrap/col';
 import Form from 'react-bootstrap/form';
 import Row from 'react-bootstrap/row';
 import { useTranslation } from 'react-i18next';
-import { candidateTypes, genders } from '../utils';
-import { subjects, years } from './stats';
+import { candidateTypes, genders } from '../common/utils';
 
-function SubjectsAForm(props) {
+function SubjectsForm(props) {
     function handleChange(event) {
         props.handleChange(event.target.name, event.target.value);
     }
 
     const { t } = useTranslation();
-    const { params, availableSubcategories } = props;
+    const { params, subjects, years, availableSubcategories } = props;
 
     return (
         <Form>
@@ -94,4 +93,4 @@ function SubjectsAForm(props) {
     );
 }
 
-export default SubjectsAForm;
+export default SubjectsForm;

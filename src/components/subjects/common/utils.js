@@ -18,7 +18,7 @@ function getStats(years, basePath) {
         stats[year] = {};
         for (let candidateType of candidateTypes) {
             stats[year][candidateType] = require(
-                `../../data/${year}/${basePath}/${candidateType}.json`
+                `../../../data/${year}/${basePath}/${candidateType}.json`
             );
         }
     }

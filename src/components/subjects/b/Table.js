@@ -2,7 +2,7 @@ import Table from 'react-bootstrap/table';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import CopyButton from '../../CopyButton';
-import { genders } from '../utils';
+import { genders } from '../common/utils';
 import { grades, stats, years } from './stats';
 
 function SubjectsBTable(props) {

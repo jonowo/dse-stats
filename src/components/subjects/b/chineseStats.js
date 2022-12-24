@@ -1,4 +1,4 @@
-import { getStats, getSubjectsAndSubcategories } from '../utils';
+import { getStats, getSubjectsAndSubcategories } from '../common/utils';
 import { years } from './stats';
 
 const grades = [

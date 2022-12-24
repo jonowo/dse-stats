@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from "react-router-dom";
-import SubjectsBForm from './Form';
+import SubjectsForm from '../common/Form';
 import SubjectsBTable from './Table';
 import SubjectsBChineseTable from './chineseTable';
-import { candidateTypes, genders, initState, stateToSearchParams } from '../utils';
+import { candidateTypes, genders, initState, stateToSearchParams } from '../common/utils';
 import { getAvailableSubcategories, subjects, years } from './stats';
 import { getAvailableSubcategories as getAvailableChineseSubcategories, subjects as chineseSubjects } from './chineseStats';
 
@@ -60,7 +60,8 @@ function SubjectsBView(props) {
         <>
             <Row className="mb-3">
                 <h3>{t("menu.subjectsB")}</h3>
-                <SubjectsBForm handleChange={handleChange} params={state}
+                <SubjectsForm handleChange={handleChange}
+                    params={state} subjects={subjects.concat(chineseSubjects)} years={years}
                     availableSubcategories={chineseSubjects.includes(state.subject)
                         ? getAvailableChineseSubcategories(state.subject)
                         : getAvailableSubcategories(state.subject)} />
