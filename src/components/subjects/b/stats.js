@@ -1,4 +1,4 @@
-import { candidateTypes, genders, getStats, getSubjectsAndSubcategories, getYearsFrom } from "../utils";
+import { getStats, getSubjectsAndSubcategories, getYearsFrom } from "../utils";
 
 const grades = [
     "Attained with Distinction (II)",
@@ -16,4 +16,4 @@ function getAvailableSubcategories(subject) {
     return (subject in subcategories) ? subcategories[subject] : [];
 }
 
-export { grades, genders, candidateTypes, years, subjects, subcategories, stats, getAvailableSubcategories };
+export { grades, years, subjects, subcategories, stats, getAvailableSubcategories };

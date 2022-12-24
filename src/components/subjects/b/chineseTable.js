@@ -1,7 +1,8 @@
 import Table from 'react-bootstrap/table';
 import { useTranslation } from 'react-i18next';
-import { genders, grades, stats, years } from './chineseStats';
 import CopyButton from '../../CopyButton';
+import { genders } from '../utils';
+import { grades, stats, years } from './chineseStats';
 
 function SubjectsBChineseTable(props) {
     const { t, i18n } = useTranslation();

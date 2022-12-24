@@ -1,4 +1,4 @@
-import { candidateTypes, genders, getStats, getSubjectsAndSubcategories, getYearsFrom } from "../utils";
+import { getStats, getSubjectsAndSubcategories, getYearsFrom } from "../utils";
 
 const grades = ["5**", "5*+", "5+", "4+", "3+", "2+", "1+", "U"];
 
@@ -10,4 +10,4 @@ function getAvailableSubcategories(subject) {
     return (subject in subcategories) ? subcategories[subject] : [];
 }
 
-export { grades, genders, candidateTypes, years, subjects, subcategories, stats, getAvailableSubcategories };
+export { grades, years, subjects, subcategories, stats, getAvailableSubcategories };

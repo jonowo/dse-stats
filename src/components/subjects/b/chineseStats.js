@@ -1,4 +1,4 @@
-import { candidateTypes, genders, getStats, getSubjectsAndSubcategories } from '../utils';
+import { getStats, getSubjectsAndSubcategories } from '../utils';
 import { years } from './stats';
 
 const grades = [
@@ -21,4 +21,4 @@ function getAvailableSubcategories(subject) {
     return (subject in subcategories) ? subcategories[subject] : [];
 }
 
-export { grades, genders, candidateTypes, years, subjects, subcategories, stats, getAvailableSubcategories };
+export { grades, years, subjects, subcategories, stats, getAvailableSubcategories };

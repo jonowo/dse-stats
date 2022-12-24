@@ -3,17 +3,12 @@ import { useSearchParams } from "react-router-dom";
 import SubjectsBForm from './Form';
 import SubjectsBTable from './Table';
 import SubjectsBChineseTable from './chineseTable';
-import { candidateTypes, genders, getAvailableSubcategories, subjects, years } from './stats';
+import { candidateTypes, genders, initState, stateToSearchParams } from '../utils';
+import { getAvailableSubcategories, subjects, years } from './stats';
 import { getAvailableSubcategories as getAvailableChineseSubcategories, subjects as chineseSubjects } from './chineseStats';
 
 function searchParamsToState(params) {
-    const state = {
-        subject: "null",
-        subcategory: "null",
-        year: "null",
-        gender: "null",
-        candidateType: candidateTypes[0]
-    };
+    const state = Object.assign({}, initState);
 
     if (subjects.includes(params.get("subject"))) {
         state.subject = params.get("subject");
@@ -38,16 +33,6 @@ function searchParamsToState(params) {
     }
 
     return state;
-}
-
-function stateToSearchParams(state) {
-    let params = {};
-    if (state.subject !== "null") params.subject = state.subject;
-    if (state.subcategory !== "null") params.subcategory = state.subcategory;
-    if (state.year !== "null") params.year = state.year;
-    if (state.gender !== "null") params.gender = state.gender;
-    if (state.candidateType !== candidateTypes[0]) params.candidateType = state.candidateType;
-    return params;
 }
 
 function SubjectsBView(props) {

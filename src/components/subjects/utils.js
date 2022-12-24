@@ -50,4 +50,22 @@ function getSubjectsAndSubcategories(years, stats) {
     return [subjects, subcategories];
 }
 
-export { genders, candidateTypes, getYearsFrom, getStats, getSubjectsAndSubcategories };
+const initState = {
+    subject: "null",
+    subcategory: "null",
+    year: "null",
+    gender: "null",
+    candidateType: candidateTypes[0]
+};
+
+function stateToSearchParams(state) {
+    let params = {};
+    if (state.subject !== "null") params.subject = state.subject;
+    if (state.subcategory !== "null") params.subcategory = state.subcategory;
+    if (state.year !== "null") params.year = state.year;
+    if (state.gender !== "null") params.gender = state.gender;
+    if (state.candidateType !== candidateTypes[0]) params.candidateType = state.candidateType;
+    return params;
+}
+
+export { genders, candidateTypes, getYearsFrom, getStats, getSubjectsAndSubcategories, initState, stateToSearchParams };
