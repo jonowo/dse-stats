@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from "react-router-dom";
-import SubjectsAForm from './Form';
-import SubjectsATable from './Table';
+import SubjectsBForm from './Form';
+import SubjectsBTable from './Table';
 import { candidateTypes, genders, getAvailableSubcategories, subjects, years } from './stats';
 
 function searchParamsToState(params) {
@@ -42,7 +42,7 @@ function stateToSearchParams(state) {
     return params;
 }
 
-function SubjectsAView(props) {
+function SubjectsBView(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [state, setState] = useState(searchParamsToState(searchParams));
 
@@ -64,11 +64,11 @@ function SubjectsAView(props) {
 
     return (
         <>
-            <SubjectsAForm handleChange={handleChange} params={state}
+            <SubjectsBForm handleChange={handleChange} params={state}
                 availableSubcategories={getAvailableSubcategories(state.subject)} />
-            <SubjectsATable params={state} />
+            <SubjectsBTable params={state} />
         </>
     );
 }
 
-export default SubjectsAView;
+export default SubjectsBView;

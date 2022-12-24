@@ -1,13 +1,17 @@
 {
     "menu": {
         "title": "文憑試成績統計",
-        "subjectsA": "甲類科目"
+        "subjectsA": "甲類科目",
+        "subjectsB": "乙類科目"
+    },
+    "availableStatistics": {
+        "title": "統計分類"
     },
     "about": {
         "title": "簡介",
-        "part1": "此網站收集了香港中學文憑考試考生在甲類科目的成績，數據由考評局提供。",
+        "part1": "此網站收集了香港中學文憑考試考生在甲類科目的成績，數據取自考評局。",
         "part2": "此網站可在手提裝置上安裝供離線使用。要瀏覽此網站的最新版本，你可能需要刷新網頁並重啟程式。",
-        "part3": "本人年事已高，記憶力衰退，如放榜後未有更新此網頁，請在 <0>Telegram</0> 提醒本人。",
+        "part3": "考評局仍未上載 2022 年文憑試數據。（24/12/2022）",
         "part4": "由 2022 年文憑試考生製作。",
         "part5": "原始碼：",
         "part6": "數據："
@@ -20,6 +24,7 @@
         "gender": "性別",
         "noEntered": "報考人數",
         "noSat": "出席人數",
+        "noFulfillingAttendanceRequirement": "應考人數",
         "chineseVersion": "中文作答",
         "gradesAttained": "考獲等級"
     },
@@ -42,6 +47,12 @@
         "daySchoolCandidates": "日校考生",
         "allCandidates": "全體考生"
     },
+
+    "Attained with Distinction (II)": "達標並表現優異(II)",
+    "Attained with Distinction (I) or above": "達標並表現優異(I)或以上",
+    "Attained or above": "達標或以上",
+    "Unattained": "未達標",
+
     "Biology": "生物",
     "Business, Accounting and Financial Studies": "企業、會計與財務概論",
     "Accounting": "會計",
@@ -81,5 +92,59 @@
     "Fashion, Clothing and Textiles": "服裝、成衣與紡織",
     "Tourism and Hospitality Studies": "旅遊與款待",
     "Visual Arts": "視覺藝術",
-    "All Category A subjects": "所有甲類學科"
+    "All Category A subjects": "所有甲類學科",
+
+    "Applied Science": "應用科學",
+    "Animal Care": "動物護理",
+    "Applied Psychology": "應用心理學",
+    "Exercise Science and Health Fitness": "運動科學及體適能",
+    "Foundation in Chinese Medicine": "中醫藥學基礎",
+    "Health Care Practice": "健康護理實務",
+    "Medical Laboratory Science": "醫務化驗科學",
+    "Practical Psychology": "實用心理學",
+    "Sports and Fitness Coaching": "運動及體適能教練",
+    "Business, Management and Law": "商業、管理及法律",
+    "Accounting for e-Business": "電子商務會計",
+    "Business Data Analysis": "商業數據分析",
+    "Entrepreneurship for SME": "中小企創業實務",
+    "Law Enforcement in Hong Kong": "香港執法實務",
+    "Marketing and Online Promotion": "市場營銷及網上推廣",
+    "Accounting in Practice": "會計實務",
+    "Creative Studies": "創意學習",
+    "Computer Game and Animation Design": "電腦遊戲及動畫設計",
+    "Display and Jewellery Design": "展示及首飾設計",
+    "Fashion Image Design": "時裝形象設計",
+    "Interior Design": "室內設計",
+    "Taking a Chance on Dance": "舞出新機－舞蹈藝術",
+    "The Essentials of Theatre Arts": "由戲開始•劇藝縱橫（2021 年起）",
+    "Jewellery and Accessories Design": "珠寶及時尚首飾設計",
+    "Fashion and Image Design": "時裝及形象設計",
+    "The Essentials of Dramatic Arts": "由戲開始•劇藝縱橫（2019 年或之前）",
+    "Introduction to Cantonese Opera": "由踐入藝：粵劇入門",
+    "Engineering and Production": "工程及生產",
+    "Aviation Studies": "航空學",
+    "Computer Forensic Technology": "電腦鑑證科技",
+    "Constructing Smart Cities": "建構智慧城市",
+    "Electrical and Energy Engineering": "電機及能源工程",
+    "Internet of Everything Application": "物聯網應用",
+    "Railway Studies": "鐵路學",
+    "Automotive Technology": "汽車科技",
+    "Building Technology": "屋宇科技",
+    "Media and Communication": "媒體及傳意",
+    "Creative Advertising": "創意廣告",
+    "Film and Transmedia": "電影及超媒體",
+    "Magazine Editing and Production": "雜誌編輯與製作",
+    "Public Relations and Communication": "公關及傳訊",
+    "Film and Video": "電影及錄像",
+    "New Media Communication Strategies": "新媒體傳播策略",
+    "Services": "服務",
+    "Child Care and Development": "幼兒發展",
+    "Child Care and Education": "幼兒教育",
+    "Fundamental Cosmetology": "美容學基礎",
+    "Hospitality Services in Practice": "酒店服務營運",
+    "Hotel Operations": "酒店營運",
+    "Pâtisserie and Café Operations": "甜品及咖啡店營運",
+    "Western Cuisine": "西式食品製作",
+    "Food and Beverage Operations": "餐飲業運作",
+    "All Category B subjects (except Applied Learning Chinese)": "所有乙類學科（不包括應用學習中文）"
 }

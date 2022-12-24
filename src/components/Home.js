@@ -12,11 +12,14 @@ function Home() {
     return (
         <>
             <Row className="mb-3">
-                <h3>Available Statistics</h3>
+                <h3>{t("availableStatistics.title")}</h3>
                 <Col lg={4} md={6}>
                     <ListGroup>
                         <ListGroup.Item action onClick={() => navigate("/subjects/a")}>
                             {t("menu.subjectsA")}
+                        </ListGroup.Item>
+                        <ListGroup.Item action onClick={() => navigate("/subjects/b")}>
+                            {t("menu.subjectsB")}
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>

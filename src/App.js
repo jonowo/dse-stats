@@ -8,6 +8,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import './App.css';
 import Home from './components/Home';
 import SubjectsAView from './components/subjects/a/View';
+import SubjectsBView from './components/subjects/b/View';
 
 function ToggleLanguage(props) {
     const { i18n } = useTranslation();
@@ -46,6 +47,9 @@ function Header() {
                             <LinkContainer to="subjects/a">
                                 <Nav.Link>{t("menu.subjectsA")}</Nav.Link>
                             </LinkContainer>
+                            <LinkContainer to="subjects/b">
+                                <Nav.Link>{t("menu.subjectsB")}</Nav.Link>
+                            </LinkContainer>
                             <ToggleLanguage className="d-block d-lg-none" />
                         </Nav>
                     </Navbar.Collapse>
@@ -69,6 +73,7 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="subjects">
                         <Route path="a" element={<SubjectsAView />}></Route>
+                        <Route path="b" element={<SubjectsBView />} />
                     </Route>
                 </Routes>
             </Container>

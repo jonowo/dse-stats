@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { genders, grades, stats, years } from './stats';
 import CopyButton from '../../CopyButton';
 
-function SubjectsATable(props) {
+function SubjectsBTable(props) {
     const { t, i18n } = useTranslation();
     const { params } = props;
 
@@ -13,7 +13,7 @@ function SubjectsATable(props) {
             <>
                 <h5 className="mb-3">{t("table.specify")}</h5>
                 <p>
-                    <Link to="?subject=Mathematics&subcategory=Compulsory+Part&gender=total">
+                    <Link to="?subject=Services&subcategory=Pâtisserie+and+Café+Operations&gender=total">
                         {t("table.showExample")}
                     </Link>
                 </p>
@@ -21,8 +21,6 @@ function SubjectsATable(props) {
         );
     }
 
-    // Horrible code
-    let showMathPS = false;
     let rows = [];
     for (let year of years) {
         if (params.year !== "null" && params.year !== year) continue;
@@ -32,10 +30,6 @@ function SubjectsATable(props) {
             const data = group[i];
             if (params.subject !== "null" && params.subject !== data.subject) continue;
             if (params.subcategory !== "null" && params.subcategory !== data.subcategory) continue;
-
-            if (data.subject === "All Category A subjects") {
-                showMathPS = true;
-            }
 
             let subjectRowSpan = 0, subcategoryRowSpan = 0, subjectColSpan = 1;
 
@@ -64,6 +58,7 @@ function SubjectsATable(props) {
                 subcategoryRowSpan *= 3;
             }
 
+            console.log(data);
             for (let gender of (params.gender === "null" ? genders : [params.gender])) {
                 let isLastRow = params.gender !== "null" || gender === genders[genders.length - 1];
                 rows.push(
@@ -80,7 +75,6 @@ function SubjectsATable(props) {
                                             colSpan={subjectColSpan.toString()}
                                             className="all-border text-start">
                                             {t(data.subject)}
-                                            {(data.subject === "All Category A subjects" ? <sup>#</sup> : "")}
                                         </td>
                                     </>
                                 )
@@ -96,21 +90,16 @@ function SubjectsATable(props) {
                             {t(`gender.${gender}`)}
                         </td>
                         <td className="color-bg">{data[gender].noEntered.toString()}</td>
-                        <td className="color-bg">{data[gender].noSat.toString()}</td>
-                        <td className="color-bg text-center">
-                            {
-                                data[gender].chineseVersion !== null
-                                    ? data[gender].chineseVersion.toFixed(1) + "%"
-                                    : "-"
-                            }
-                        </td>
+                        <td className="color-bg">{data[gender].noFulfillingAttendanceRequirement.toString()}</td>
 
                         {
                             grades.map((g) =>
-                                <td key={g} className="color-bg">
-                                    {data[gender][g].toString()} <br />
-                                    ({(data[gender][g] / data[gender].noSat * 100).toFixed(1)}%)
-                                </td>
+                                data[gender][g] !== null
+                                    ? <td key={g} className="color-bg">
+                                        {data[gender][g].toString()} <br />
+                                        ({(data[gender][g] / data[gender].noEntered * 100).toFixed(1)}%)
+                                    </td>
+                                    : <td key={g} className="color-bg">-<br />(-)</td>
                             )
                         }
                     </tr>
@@ -139,14 +128,13 @@ function SubjectsATable(props) {
                         <th rowSpan="2" colSpan="2">{t("heading.subject")}</th>
                         <th rowSpan="2" width="6%">{t("heading.gender")}</th>
                         <th rowSpan="2" width="6%">{t("heading.noEntered")}</th>
-                        <th rowSpan="2" width="6%">{t("heading.noSat")}</th>
-                        <th rowSpan="2" width="6%">{t("heading.chineseVersion")}</th>
+                        <th rowSpan="2" width="6%">{t("heading.noFulfillingAttendanceRequirement")}</th>
                         <th colSpan="8">{t("heading.gradesAttained")}</th>
                     </tr>
                     <tr>
                         {
                             grades.map(g =>
-                                <th key={g} width="5.3%">{g}</th>
+                                <th key={g} width="12%">{t(g)}</th>
                             )
                         }
                     </tr>
@@ -155,11 +143,8 @@ function SubjectsATable(props) {
                     {rows}
                 </tbody>
             </Table>
-            {showMathPS &&
-                <p><small className="text-muted"># {t("table.mathPS")}</small></p>
-            }
         </>
     );
 }
 
-export default SubjectsATable;
+export default SubjectsBTable;

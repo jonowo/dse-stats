@@ -1,14 +1,18 @@
 {
     "menu": {
         "title": "HKDSE Statistics",
-        "subjectsA": "Category A Subjects"
+        "subjectsA": "Category A Subjects",
+        "subjectsB": "Category B Subjects"
+    },
+    "availableStatistics": {
+        "title": "Available Statistics"
     },
     "about": {
         "title": "About",
         "part1": "<0>HKDSE</0> is the university entrance exam in Hong Kong. This website aggregates candidates' results in HKDSE Category A subjects as released by <1>HKEAA</1>.",
         "part2": "This website is installable as an offline app on mobile devices. To see the latest version of the website, you may need to refresh the page and restart the app.",
-        "part3": "I may or may not remember to update this website after HKDSE results are released each year. Remind me on <0>Telegram</0> if you think I forgor.",
-        "part4": "Made by a 2022 HKDSE candidate.",
+        "part3": "HKEAA has yet to upload data for 2022 HKDSE. (24/12/2022)",
+        "part4": "Created by a 2022 HKDSE candidate.",
         "part5": "Source code: ",
         "part6": "Data: "
     },
@@ -20,6 +24,7 @@
         "gender": "Gender",
         "noEntered": "No. Entered",
         "noSat": "No. Sat",
+        "noFulfillingAttendanceRequirement": "No. of candidates fulfilling attendance requirement",
         "chineseVersion": "Chinese Version",
         "gradesAttained": "Grades Attained"
     },
