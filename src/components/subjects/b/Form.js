@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/form';
 import Row from 'react-bootstrap/row';
 import { useTranslation } from 'react-i18next';
 import { candidateTypes, genders, subjects, years } from './stats';
+import { subjects as chineseSubjects } from './chineseStats';
 
 function SubjectsBForm(props) {
     function handleChange(event) {
@@ -23,7 +24,7 @@ function SubjectsBForm(props) {
                             onChange={handleChange}>
                             <option value="null">-</option>
                             {
-                                subjects.map((s) =>
+                                (subjects.concat(chineseSubjects)).map((s) =>
                                     <option key={s} value={s}>{t(s)}</option>
                                 )
                             }

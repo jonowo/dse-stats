@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from "react-router-dom";
 import SubjectsBForm from './Form';
 import SubjectsBTable from './Table';
+import SubjectsBChineseTable from './chineseTable';
 import { candidateTypes, genders, getAvailableSubcategories, subjects, years } from './stats';
+import { getAvailableSubcategories as getAvailableChineseSubcategories, subjects as chineseSubjects } from './chineseStats';
 
 function searchParamsToState(params) {
     const state = {
@@ -18,7 +20,13 @@ function searchParamsToState(params) {
         if (getAvailableSubcategories(state.subject).includes(params.get("subcategory"))) {
             state.subcategory = params.get("subcategory");
         }
+    } else if (chineseSubjects.includes(params.get("subject"))) {
+        state.subject = params.get("subject");
+        if (getAvailableChineseSubcategories(state.subject).includes(params.get("subcategory"))) {
+            state.subcategory = params.get("subcategory");
+        }
     }
+
     if (years.includes(params.get("year"))) {
         state.year = params.get("year");
     }
@@ -46,9 +54,7 @@ function SubjectsBView(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [state, setState] = useState(searchParamsToState(searchParams));
 
-    // Update state if search params changed (from example or nav link)
     useEffect(() => setState(searchParamsToState(searchParams)), [searchParams]);
-    // Update search params if state changed (from form update)
     useEffect(() => setSearchParams(stateToSearchParams(state)), [state, setSearchParams]);
 
     function handleChange(key, value) {
@@ -65,8 +71,13 @@ function SubjectsBView(props) {
     return (
         <>
             <SubjectsBForm handleChange={handleChange} params={state}
-                availableSubcategories={getAvailableSubcategories(state.subject)} />
-            <SubjectsBTable params={state} />
+                availableSubcategories={chineseSubjects.includes(state.subject)
+                    ? getAvailableChineseSubcategories(state.subject)
+                    : getAvailableSubcategories(state.subject)} />
+
+            {chineseSubjects.includes(state.subject)
+                ? <SubjectsBChineseTable params={state} />
+                : <SubjectsBTable params={state} />}
         </>
     );
 }

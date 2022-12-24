@@ -50,6 +50,7 @@
 
     "Attained with Distinction (II)": "達標並表現優異(II)",
     "Attained with Distinction (I) or above": "達標並表現優異(I)或以上",
+    "Attained with Distinction": "達標並表現優異",
     "Attained or above": "達標或以上",
     "Unattained": "未達標",
 
@@ -146,5 +147,12 @@
     "Pâtisserie and Café Operations": "甜品及咖啡店營運",
     "Western Cuisine": "西式食品製作",
     "Food and Beverage Operations": "餐飲業運作",
-    "All Category B subjects (except Applied Learning Chinese)": "所有乙類學科（不包括應用學習中文）"
+    "All Category B subjects (except Applied Learning Chinese)": "所有乙類學科（不包括應用學習中文）",
+    "Applied Learning Chinese (for non-Chinese speaking students)": "應用學習中文（非華語學生適用）",
+    "Chinese in Business Service": "商業服務中文",
+    "Chinese in Practical Context": "商業服務中文",
+    "Practical Chinese": "實務中文",
+    "Chinese for the Service Industry": "服務業中文",
+    "Practical Chinese in Hospitality": "款待實務中文",
+    "All": "總計"
 }

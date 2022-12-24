@@ -1,25 +1,11 @@
 import Table from 'react-bootstrap/table';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { genders, grades, stats, years } from './stats';
+import { genders, grades, stats, years } from './chineseStats';
 import CopyButton from '../../CopyButton';
 
-function SubjectsBTable(props) {
+function SubjectsBChineseTable(props) {
     const { t, i18n } = useTranslation();
     const { params } = props;
-
-    if (params.subject === "null" && params.year === "null") {
-        return (
-            <>
-                <h5 className="mb-3">{t("table.specify")}</h5>
-                <p>
-                    <Link to="?subject=Services&subcategory=Pâtisserie+and+Café+Operations&gender=total">
-                        {t("table.showExample")}
-                    </Link>
-                </p>
-            </>
-        );
-    }
 
     let rows = [];
     for (let year of years) {
@@ -146,4 +132,4 @@ function SubjectsBTable(props) {
     );
 }
 
-export default SubjectsBTable;
+export default SubjectsBChineseTable;
