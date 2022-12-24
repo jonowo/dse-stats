@@ -1,18 +1,19 @@
 {
     "menu": {
         "title": "文憑試成績統計",
-        "subjectsA": "甲類科目",
-        "subjectsB": "乙類科目"
+        "subjectsA": "甲類學科",
+        "subjectsB": "乙類學科",
+        "subjectsC": "丙類學科"
     },
     "availableStatistics": {
         "title": "統計分類"
     },
     "about": {
         "title": "簡介",
-        "part1": "此網站收集了香港中學文憑考試考生在甲類科目的成績，數據取自考評局。",
+        "part1": "此網站收集了香港中學文憑考試考生在各科的成績，數據取自考評局。",
         "part2": "此網站可在手提裝置上安裝供離線使用。要瀏覽此網站的最新版本，你可能需要刷新網頁並重啟程式。",
         "part3": "考評局仍未上載 2022 年文憑試數據。（24/12/2022）",
-        "part4": "由 2022 年文憑試考生製作。",
+        "part4": "由一名 2022 年文憑試考生製作。",
         "part5": "原始碼：",
         "part6": "數據："
     },
@@ -154,5 +155,13 @@
     "Practical Chinese": "實務中文",
     "Chinese for the Service Industry": "服務業中文",
     "Practical Chinese in Hospitality": "款待實務中文",
-    "All": "總計"
+    "All": "總計",
+
+    "French Language": "法語",
+    "German Language": "德語",
+    "Hindi Language": "印地語",
+    "Japanese Language": "日語",
+    "Spanish Language": "西班牙語",
+    "Urdu Language": "烏爾都語",
+    "All Category C subjects": "所有丙類學科"
 }

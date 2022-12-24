@@ -21,6 +21,9 @@ function Home() {
                         <ListGroup.Item action onClick={() => navigate("/subjects/b")}>
                             {t("menu.subjectsB")}
                         </ListGroup.Item>
+                        <ListGroup.Item action onClick={() => navigate("/subjects/c")}>
+                            {t("menu.subjectsC")}
+                        </ListGroup.Item>
                     </ListGroup>
                 </Col>
             </Row>
@@ -28,7 +31,7 @@ function Home() {
             <h3>{t("about.title")}</h3>
             <p>
                 <Trans i18nKey="about.part1">
-                    <TextTooltip text="Hong Kong Diploma of Secondary Education"></TextTooltip>
+                    <TextTooltip text="Hong Kong Diploma of Secondary Education Examination"></TextTooltip>
                     <TextTooltip text="Hong Kong Examinations and Assessment Authority"></TextTooltip>
                 </Trans>
             </p>

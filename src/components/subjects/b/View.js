@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Row from 'react-bootstrap/Row';
+import { useTranslation } from 'react-i18next';
 import { useSearchParams } from "react-router-dom";
 import SubjectsBForm from './Form';
 import SubjectsBTable from './Table';
@@ -36,6 +38,7 @@ function searchParamsToState(params) {
 }
 
 function SubjectsBView(props) {
+    const { t } = useTranslation();
     const [searchParams, setSearchParams] = useSearchParams();
     const [state, setState] = useState(searchParamsToState(searchParams));
 
@@ -55,14 +58,17 @@ function SubjectsBView(props) {
 
     return (
         <>
-            <SubjectsBForm handleChange={handleChange} params={state}
-                availableSubcategories={chineseSubjects.includes(state.subject)
-                    ? getAvailableChineseSubcategories(state.subject)
-                    : getAvailableSubcategories(state.subject)} />
+            <Row className="mb-3">
+                <h3>{t("menu.subjectsB")}</h3>
+                <SubjectsBForm handleChange={handleChange} params={state}
+                    availableSubcategories={chineseSubjects.includes(state.subject)
+                        ? getAvailableChineseSubcategories(state.subject)
+                        : getAvailableSubcategories(state.subject)} />
 
-            {chineseSubjects.includes(state.subject)
-                ? <SubjectsBChineseTable params={state} />
-                : <SubjectsBTable params={state} />}
+                {chineseSubjects.includes(state.subject)
+                    ? <SubjectsBChineseTable params={state} />
+                    : <SubjectsBTable params={state} />}
+            </Row>
         </>
     );
 }

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from "react-router-dom";
-import SubjectsAForm from './Form';
-import SubjectsATable from './Table';
+import SubjectsCForm from './Form';
+import SubjectsCTable from './Table';
 import { getAvailableSubcategories, subjects, years } from './stats';
 import { candidateTypes, genders, initState, stateToSearchParams } from '../utils';
 
@@ -29,14 +29,12 @@ function searchParamsToState(params) {
     return state;
 }
 
-function SubjectsAView(props) {
+function SubjectsCView(props) {
     const { t } = useTranslation();
     const [searchParams, setSearchParams] = useSearchParams();
     const [state, setState] = useState(searchParamsToState(searchParams));
 
-    // Update state if search params changed (from example or nav link)
     useEffect(() => setState(searchParamsToState(searchParams)), [searchParams]);
-    // Update search params if state changed (from form update)
     useEffect(() => setSearchParams(stateToSearchParams(state)), [state, setSearchParams]);
 
     function handleChange(key, value) {
@@ -53,13 +51,13 @@ function SubjectsAView(props) {
     return (
         <>
             <Row className="mb-3">
-                <h3>{t("menu.subjectsA")}</h3>
-                <SubjectsAForm handleChange={handleChange} params={state}
+                <h3>{t("menu.subjectsC")}</h3>
+                <SubjectsCForm handleChange={handleChange} params={state}
                     availableSubcategories={getAvailableSubcategories(state.subject)} />
-                <SubjectsATable params={state} />
+                <SubjectsCTable params={state} />
             </Row>
         </>
     );
 }
 
-export default SubjectsAView;
+export default SubjectsCView;
