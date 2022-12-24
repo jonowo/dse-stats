@@ -54,7 +54,7 @@ function SubjectsAView(props) {
     return (
         <>
             <Row>
-                <h3>{t("menu.subjectsA")}</h3>
+                <h3>{t("title.subjectsA")}</h3>
                 <SubjectsForm handleChange={handleChange}
                     params={state} subjects={subjects} years={years}
                     availableSubcategories={getAvailableSubcategories(state.subject)} />

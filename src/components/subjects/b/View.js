@@ -60,7 +60,7 @@ function SubjectsBView(props) {
     return (
         <>
             <Row>
-                <h3>{t("menu.subjectsB")}</h3>
+                <h3>{t("title.subjectsB")}</h3>
                 <SubjectsForm handleChange={handleChange}
                     params={state} subjects={subjects.concat(chineseSubjects)} years={years}
                     availableSubcategories={chineseSubjects.includes(state.subject)

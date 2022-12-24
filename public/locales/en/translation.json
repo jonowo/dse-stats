@@ -5,8 +5,11 @@
         "subjectsB": "Category B Subjects",
         "subjectsC": "Category C Subjects"
     },
-    "availableStatistics": {
-        "title": "Available Statistics"
+    "title": {
+        "availableStatistics": "Available Statistics",
+        "subjectsA": "Category A: Senior Secondary Subjects",
+        "subjectsB": "Category B: Applied Learning Subjects",
+        "subjectsC": "Category C: Other Language Subjects"
     },
     "about": {
         "title": "About",

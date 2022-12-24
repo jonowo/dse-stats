@@ -5,8 +5,11 @@
         "subjectsB": "乙類學科",
         "subjectsC": "丙類學科"
     },
-    "availableStatistics": {
-        "title": "統計分類"
+    "title": {
+        "availableStatistics": "統計分類",
+        "subjectsA": "甲類：高中科目",
+        "subjectsB": "乙類：應用學習科目",
+        "subjectsC": "丙類：其他語言科目"
     },
     "about": {
         "title": "簡介",
