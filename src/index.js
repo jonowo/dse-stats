@@ -19,6 +19,5 @@ root.render(
     </React.StrictMode>
 );
 
-// Features go brrr
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.register();
 reportWebVitals();
