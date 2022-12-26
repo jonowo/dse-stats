@@ -9,7 +9,7 @@
 
 import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
-import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
+import { precache, precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
 
@@ -61,13 +61,15 @@ registerRoute(
     })
 );
 
+// Precache translation files
+precache([
+    { url: '/locales/en/translation.json', revision: null },
+    { url: '/locales/zh/translation.json', revision: null }
+]);
 registerRoute(
     ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.json'),
     new StaleWhileRevalidate({
-        cacheName: 'translation',
-        plugins: [
-            new ExpirationPlugin({ maxEntries: 2 }),
-        ],
+        cacheName: 'translation'
     })
 );
 
